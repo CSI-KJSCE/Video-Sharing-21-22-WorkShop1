@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+}
+
+.header_section{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px;
+}
+
+.logo-styles{
+    height: 50px;
+    object-fit: contain;
+    margin-left:20px;
+}
+
+.account_section{
+    display: flex;
+    align-items:center;
+}
+.search_section{
+    display: flex;
+    align-items:center;
+    width:40%;
+    border: 1px solid black;
+    border-radius:2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.search_section > input{
+    flex: 1;
+    border: none;
+}
+
+.search_section > i{
+    margin-right: 5px;
+}
+
