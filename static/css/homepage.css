@@ -7,6 +7,10 @@
     align-items: center;
     justify-content:space-between;
     padding: 20px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background-color: white;
 }
 
 .logo-styles{
@@ -22,19 +26,43 @@
 .search_section{
     display: flex;
     align-items:center;
+    justify-content:center;
     width:40%;
     border: 1px solid black;
     border-radius:2px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 0px;
+    padding-left: 20px;
 }
 
 .search_section > input{
     flex: 1;
     border: none;
+    justify-content: center;
 }
 
 .search_section > i{
-    margin-right: 5px;
+    width:50px;
+    background-color: rgb(4, 11, 73);
+    border-left: 1px solid rgb(3, 53, 110);
+    padding-bottom: 4.3px;
 }
 
+.fa-search {
+    padding-left: 20px;
+    padding-top: 3px;
+}
+.fa-search:before {
+    padding-left: 10%;
+    content: "\f002";
+    color :white;
+    margin-top: 10px;
+}
+
+.left_section{
+    display: flex;
+    justify-content:center;
+}
+
+.hamburger{
+    padding-top: 20px;
+}
