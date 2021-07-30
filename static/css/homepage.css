@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 * {
     margin: 0;
 }
@@ -42,7 +43,7 @@
 
 .search_section > i{
     width:50px;
-    background-color: rgb(4, 11, 73);
+    background-color: rgb(3, 53, 110);
     border-left: 1px solid rgb(3, 53, 110);
     padding-bottom: 4.3px;
 }
@@ -66,3 +67,56 @@
 .hamburger{
     padding-top: 20px;
 }
+
+
+/* The sidebars */
+
+.main_code_body{
+    display: flex;
+}
+
+.SideBars {
+    flex:0.2;
+}
+
+.TheVideoSection{
+    flex:0.8;
+    border:1px solid black;
+}
+
+.sidebars_field{
+    display: flex;
+    align-items: center;
+    margin-top:4px;
+    padding:10px 20px;
+}
+.sidebars_field:hover{
+    background-color:lightgray;
+    cursor: pointer;
+}
+
+.sidebars_field:hover >.icon_sidebar{
+    color:rgb(4, 46, 94);
+}
+.sidebars_field:hover >.sidebar_text{
+    font-weight: bolder;
+}
+.sidebars_field.selected{
+    background-color:lightgray;
+}
+.icon_sidebar{
+    margin-left: 15px;
+    margin-right: 30px;
+    color: #606060;
+    font-size: large !important;
+}
+
+.sidebar_text{
+    color:#606060;
+    font-size: 1rem;
+    flex: 1;
+    font-weight: 700;
+    letter-spacing:0.5px;
+    font-family: 'Rubik', sans-serif,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
