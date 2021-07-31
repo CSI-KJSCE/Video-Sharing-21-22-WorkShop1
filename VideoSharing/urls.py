@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('',HomePageView.as_view(),name='home'),
     path('homepage/',views.homepage,name='homepage'),
+    path('videoView/',views.video,name="ViewVideo")
 ]

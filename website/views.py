@@ -10,3 +10,6 @@ class HomePageView(TemplateView):
 
 def homepage(request):
     return render(request,'homepage.html')
+
+def video(request):
+    return render(request,'videoView.html')

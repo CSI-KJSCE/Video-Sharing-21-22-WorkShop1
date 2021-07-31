@@ -1,0 +1,53 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
+    <script src="{% static 'js/homepage.js' %}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/0efb5bc93c.js"></script>
+    <title>Homepage</title>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header_section">
+        <div class="left_section">
+            <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
+            <img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox">
+        </div>
+        
+        <div class="search_section">
+            <input type="text" placeholder="Search"/>
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+
+        <div class="account_section">
+            <i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i>
+            <h4 style="margin: 6px;">Krutika Bhatt</h4>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <!-- Main Video Section -->
+    <div class="TheMainVideoSection">
+        <div class="videos">
+            <video  width="1060" height="500" controls>
+                <source src="{% static 'videos/demonstartion.mp4' %}" type="video/mp4">
+            </video>
+
+            <h3>Learn Git and Github in 1 day !</h2>
+            <p>182,480 views  ● Streamed live on Jul 29, 2020</p>
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+
+            <div>
+                <h4>Share</h4>
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
