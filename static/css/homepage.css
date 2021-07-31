@@ -30,9 +30,11 @@
     justify-content:center;
     width:40%;
     border: 1px solid black;
-    border-radius:2px;
+    border-radius:1px;
     padding: 0px;
-    padding-left: 20px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
 }
 
 .search_section > input{
@@ -45,12 +47,13 @@
     width:50px;
     background-color: rgb(3, 53, 110);
     border-left: 1px solid rgb(3, 53, 110);
-    padding-bottom: 4.3px;
+    padding-bottom: 4.0px;
 }
 
 .fa-search {
     padding-left: 20px;
-    padding-top: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 .fa-search:before {
     padding-left: 10%;
