@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import TemplateView
+from website import views
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -25,4 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('',HomePageView.as_view(),name='home'),
+    path('homepage/',views.homepage,name='homepage'),
+    path('videoView/',views.video,name="ViewVideo")
 ]
