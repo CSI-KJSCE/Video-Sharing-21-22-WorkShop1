@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import User, Video, Comment
 # Create your views here.
 
 
@@ -9,7 +9,17 @@ class HomePageView(TemplateView):
 
 
 def homepage(request):
-    return render(request,'homepage.html')
+    user=User.ojects.filter(name=User.username)
+    videos=Video.objects.all()
+    return render(request,'homepage.html',{"user":user, "video":videos})
+
 
 def video(request):
-    return render(request,'videoView.html')
+    comments=Comments.objects.all()
+    if request.method=="POST":
+        #Make the thumbs up and down icon a button
+        #likes++ dislikes++
+        comment=request.POST["comment"]
+        # add videoid=
+        commentobj=Comment(user=User.username,comment=comment) #add which video he had selected.
+    return render(request,'videoView.html',{"comments":comments})

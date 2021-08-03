@@ -18,7 +18,7 @@
             <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
             <img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox">
         </div>
-        
+
         <div class="search_section">
             <input type="text" placeholder="Search"/>
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -47,13 +47,13 @@
                         <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
                         <h4  class="LikeCount">32</h4>
                     </div>
-                    
-                    <div class="Share_feature"> 
+
+                    <div class="Share_feature">
                         <h4>Share</h4>
                         <i class="fa fa-share-alt" aria-hidden="true" id="IconResize"></i>
                     </div>
                 </div>
-                
+
                 <p>182,480 views  &nbsp; ● Streamed live on Jul 29, 2020</p>
                 <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
 
@@ -66,17 +66,20 @@
                 </div>
                 <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
 
+                <h3> 432 Comments</h3>
+                <div class="MyComment">
+                <form method="POST">
+                    {% csrf_token %}
+                  <textarea rows="4" cols="110" placeholder="Enter a comment"> </textarea>
+                  <button name="mybtn1" type='Submit' value="Click" class="save btn btn-default">Save</button>
+                </form>
                 <div class="Comments">
-                    <h3> 432 Comments</h3>
-                    <div class="MyComment">
-                        <textarea rows="4" cols="110" placeholder="Enter a comment"></textarea>
-                        <button>Save</button>
-                    </div>
-                    
+                </div>
+
                 </div>
             </div>
-            
-            
+
+
         </div>
     </div>
 </body>
