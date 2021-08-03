@@ -95,7 +95,51 @@
 }
 
 .MyComment{
-    display:block;
+    display:table-caption;
+    font-family: sans-serif;
     margin-left: 3.5%;
     margin-top: 30px;
+}
+
+.Comment_button{
+    height:30px;
+    margin-top:13px;
+    justify-self: end;
+    width:60px;
+    font-size: 15px;
+    color :#f9f9f9;
+    background-color:rgb(73, 73, 255);
+    cursor : pointer;
+
+}
+
+.OthersComment {
+    display: block;
+    margin-top:15px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    margin-left: 2.5%;
+}
+
+.SingleComment {
+    margin-bottom: 25px;
+}
+.NameText {
+    width : 800px;
+}
+.NameText >h4{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+.NameText >p{
+    font-size:15px;
+    margin-top: 10px;
+}
+
+.AlignCommentItem >i{
+    font-size:2em;
+    color :rgb(49, 48, 49);
+    margin-right: 8px;
 }
