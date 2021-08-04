@@ -9,17 +9,19 @@ class HomePageView(TemplateView):
 
 
 def homepage(request):
-    user=User.ojects.filter(name=User.username)
-    videos=Video.objects.all()
-    return render(request,'homepage.html',{"user":user, "video":videos})
-
+    #username=User.objects.filter(name=User.username)
+    #videos=Video.objects.all()
+    return render(request,'homepage.html',{})
+#"user":user, "video":videos
 
 def video(request):
-    comments=Comments.objects.all()
-    if request.method=="POST":
+    #comments=Comments.objects.all()
+    #if request.method=="POST":
+    return render(request,'videoView.html',{})
         #Make the thumbs up and down icon a button
         #likes++ dislikes++
-        comment=request.POST["comment"]
+        #comment=request.POST["comment"]
         # add videoid=
-        commentobj=Comment(user=User.username,comment=comment) #add which video he had selected.
-    return render(request,'videoView.html',{"comments":comments})
+        #commentobj=Comment(user=User.username,comment=comment) #add which video he had selected.
+
+    #{"comments":comments}
