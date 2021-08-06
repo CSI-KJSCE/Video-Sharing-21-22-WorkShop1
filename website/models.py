@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.fields import CharField, TextField
 from datetime import date
-
+from django.core.validators import FileExtensionValidator
 # Create your models here.
 
 
@@ -24,12 +24,16 @@ class Video(models.Model):
     title = models.CharField(max_length=100)
     description = TextField(max_length=1000)
     likes = models.IntegerField(default=0)
-    dislikes = models.IntegerField
+    dislikes = models.IntegerField(default=0)
     date =  date.today()
+    thumbnail = models.ImageField(default = None)
+    video = models.FileField(upload_to='videos_uploaded',validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])], default=None)
+            
     #thumbnail= models.ImageField()
 
     def __str__(self):
         return self.user.username + ' : ' + self.title
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)

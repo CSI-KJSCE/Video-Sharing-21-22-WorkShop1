@@ -28,5 +28,6 @@ urlpatterns = [
     path('',HomePageView.as_view(),name='home'),
     path('homepage/',views.homepage,name='homepage'),
     path('videoView/',views.video,name="ViewVideo"),
+    path('upload/',views.upload,name="UploadVideo"),
 
 ]

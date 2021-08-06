@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import User, Video, Comment
 # Create your views here.
 
@@ -25,3 +26,22 @@ def video(request):
         #commentobj=Comment(user=User.username,comment=comment) #add which video he had selected.
 
     #{"comments":comments}
+
+
+def upload(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        desc = request.POST.get('desc')
+
+        thumbnail =  request.FILES['thumbnail']
+        video =  request.FILES['video']
+        
+        mid = Video()
+        mid.title = title
+        mid.description = desc
+        mid.thumbnail = thumbnail
+      
+    
+        print('\n\n\n' + request.user + '\n\n')
+        
+    return render(request,'upload.html',{})
