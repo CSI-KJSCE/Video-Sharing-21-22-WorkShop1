@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import User, Video, Comment
+from .models import User, Comment, NewVideo
+from datetime import date
 # Create your views here.
 
 
@@ -30,18 +31,16 @@ def video(request):
 
 def upload(request):
     if request.method == "POST":
-        title = request.POST.get('title')
-        desc = request.POST.get('desc')
+        title = request.POST['title']
+        desc = request.POST['desc']
 
         thumbnail =  request.FILES['thumbnail']
         video =  request.FILES['video']
-        
-        mid = Video()
-        mid.title = title
-        mid.description = desc
-        mid.thumbnail = thumbnail
-      
-    
-        print('\n\n\n' + request.user + '\n\n')
-        
+
+
+        videoobj= NewVideo(user=request.user,title=title,description=desc, date=date.today(),thumbnail=thumbnail,video=video )
+        videoobj.save()
+
+        #print('\n\n\n' + request.user + '\n\n')
+
     return render(request,'upload.html',{})
