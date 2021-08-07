@@ -29,5 +29,7 @@ urlpatterns = [
     path('homepage/',views.homepage,name='homepage'),
     path('videoView/',views.video,name="ViewVideo"),
     path('upload/',views.upload,name="UploadVideo"),
+    path('search_result/',views.SearchResultsView.as_view(),name="Search"),
+
 
 ]

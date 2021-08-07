@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import User, Video, Comment
+from django.db.models import Q
 # Create your views here.
 
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
@@ -35,13 +36,24 @@ def upload(request):
 
         thumbnail =  request.FILES['thumbnail']
         video =  request.FILES['video']
-        
+
         mid = Video()
         mid.title = title
         mid.description = desc
         mid.thumbnail = thumbnail
-      
-    
+
+
         print('\n\n\n' + request.user + '\n\n')
-        
+
     return render(request,'upload.html',{})
+
+class SearchResultsView(ListView):
+    model = Video
+    template_name = 'search_results.html'
+
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Video.objects.filter(
+            Q(title__icontains=query) 
+        )
