@@ -22,15 +22,26 @@
             <input type="text" placeholder="Search"/>
             <i class="fa fa-search" aria-hidden="true"></i>
         </div>
-
+        {% if user.is_authenticated %}
         <div class="account_section">
             <i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i>
-            <h4 style="margin: 6px;">Krutika Bhatt</h4>
+            <h4 style="margin: 6px;">{user.username}</h4>
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </div>
+        {% else %}
+        <div class="account_section">
+            <a href="{% url 'account_login' %}"><button class="AuthButton" >
+               Login
+           </button> </a>
+           <a href="{% url 'account_signup' %}"><button class="AuthButton">
+               SignUp
+           </button></a>
+        </div>
+        {% endif %}
     </div>
 
     <!-- Main application -->
+    
     <div class="main_code_body">
         <div class="SideBars">
             <div class="sidebars_field" id="sidebar-row">
@@ -45,8 +56,12 @@
                 <i class="fa fa-cog icon_sidebar" aria-hidden="true" ></i>
                 <h2  class="sidebar_text" >Settings</h2>
             </div>
-
             <div class="Next_ROW" ></div>
+            {% if user.is_authenticated %}
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-upload icon_sidebar" aria-hidden="true"></i>
+                <a href = '/upload'><h2  class="sidebar_text" >Upload video</h2></a>
+            </div>
             <div class="sidebars_field" id="sidebar-row">
                 <i class="fa fa-history icon_sidebar" aria-hidden="true"></i>
                 <h2 class="sidebar_text"> History </h2>
@@ -64,9 +79,23 @@
                 <h2  class="sidebar_text" >Liked videos</h2>
             </div>
             <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-sign-out icon_sidebar" aria-hidden="true"></i>
+                <a href="{% url 'account_logout' %}"><h2  class="sidebar_text">Log Out</h2></a>
+            </div>
+            {% else %}
+            <div class="sidebars_field" id="sidebar-row">
                 <i class="fa fa-compass icon_sidebar" aria-hidden="true"></i>
                 <h2  class="sidebar_text" >Explore More</h2>
             </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-upload icon_sidebar" aria-hidden="true"></i>
+                <a href = '/upload'><h2  class="sidebar_text" >Upload video</h2></a>
+            </div>
+            <div class="sidebars_field" id="sidebar-row">
+                <i class="fa fa-user icon_sidebar" aria-hidden="true"></i>
+                <h2  class="sidebar_text" >Create Account</h2>
+            </div>
+            {% endif %}
         </div>
 
         <div class="TheVideoSection">

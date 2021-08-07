@@ -2,7 +2,11 @@
 * {
     margin: 0;
 }
-
+a {
+    text-decoration: none;
+    outline: none;
+  }
+  
 .header_section{
     display: flex;
     align-items: center;
@@ -41,6 +45,9 @@
     flex: 1;
     border: none;
     justify-content: center;
+}
+.search_section > input:focus{
+    outline: none;
 }
 
 .search_section > i{
@@ -173,4 +180,31 @@
     background-color:lightgray;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.AuthButton{
+    padding: 8px 15px;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background: #285fd4;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    margin-right: 1.5em;
+    font-weight:400;
+}
+
+.AuthButton:hover{
+    font-weight: 500;
+    font-size: 13.5px;
+    box-shadow: 0 20px 50px rgba(232, 235, 236, 0.7);
+    background: #285fd4;
+    border: 2px solid #fff;
 }
