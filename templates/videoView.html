@@ -35,17 +35,17 @@
     <div class="TheMainVideoSection">
         <div class="videos">
             <video  width="1060" height="500" controls>
-                <source src="{% static 'videos/demonstartion.mp4' %}" type="video/mp4">
+                <source src={{video.video.url}} type="video/mp4">
             </video>
 
             <div class="Video_section">
                 <div class="First_line">
-                    <h4>Learn Git and Github in 1 day !</h4>
+                    <h4>{{ video.title }}</h4>
                     <div class="LikeUnlike">
                         <i class="fa fa-thumbs-up" aria-hidden="true" id="IconResize"></i>
-                        <h4 class="LikeCount">106</h4>
+                        <h4 class="LikeCount">{{ video.likes }}</h4>
                         <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
-                        <h4  class="LikeCount">32</h4>
+                        <h4  class="LikeCount">{{ video.dislikes }}</h4>
                     </div>
 
                     <div class="Share_feature">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <p>182,480 views  &nbsp; ● Streamed live on Jul 29, 2020</p>
+                <p>{{ video.likes }} likes  &nbsp; ● Streamed live on {{ video.date }}</p>
                 <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
 
                 <div class="ProfileSection">
@@ -62,7 +62,7 @@
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                         <h4>Krutika Bhatt</h4>
                     </div>
-                    <p>In this video, we will be learning about basics of Git and github.Github is the best hosting and open source webite and every programmmer should know this very basic information.</p>
+                    <p>{{ video.description }}</p>
                 </div>
                 <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
 
@@ -70,20 +70,12 @@
                 <div class="MyComment">
                 <form method="POST">
                     {% csrf_token %}
-                  <textarea rows="4" cols="110" placeholder="Enter a comment"> </textarea>
-                  <button name="mybtn1" type='Submit' value="Click" class="save btn btn-default">Save</button>
+                    <textarea rows="4" cols="110" placeholder="Enter a comment"></textarea>
+                    <button class="Comment_button">Save</button>
                 </form>
                 <div class="Comments">
 
                 </div>
-
-
-                    <h3> 432 Comments</h3>
-                    <div class="MyComment">
-                        <textarea rows="4" cols="110" placeholder="Enter a comment"></textarea>
-                        <button class="Comment_button">Save</button>
-                    </div>
-
                     <div class="OthersComment">
                         <div class="SingleComment">
                             <div class="AlignCommentItem" style="display: flex;">
