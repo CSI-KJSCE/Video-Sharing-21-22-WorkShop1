@@ -77,16 +77,18 @@
 
                 </div>
                     <div class="OthersComment">
+                        {% for comment in comments %}
                         <div class="SingleComment">
                             <div class="AlignCommentItem" style="display: flex;">
                                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 <div class="NameText">
-                                    <h4>Diana Fernandis</h4>
-                                    <p>It is very well Explained.. Keep it up :-)</p>
+                                    <h4>{{comment.user}}</h4>
+                                    <p>{{comment.text}}</p>
                                 </div>
 
                             </div>
                         </div>
+                        {% endfor %}
 
                         <div class="SingleComment">
                             <div class="AlignCommentItem" style="display: flex;">

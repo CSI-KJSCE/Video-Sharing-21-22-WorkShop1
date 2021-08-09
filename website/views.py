@@ -17,10 +17,11 @@ def homepage(request):
 
 def video(request,pk):
     video = NewVideo.objects.get(pk=pk)
-
-    comments=Comment.objects.all()
+    print(video)
+    #comments=Comment.objects.get(video = video)
+    #print(comments)
     #if request.method=="POST":
-    return render(request,'videoView.html',{'video':video,'comments':comments})
+    return render(request,'videoView.html',{'video':video})
         #Make the thumbs up and down icon a button
         #likes++ dislikes++
         #comment=request.POST["comment"]
