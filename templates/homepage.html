@@ -16,18 +16,16 @@
     <div class="header_section">
         <div class="left_section">
             <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
-            <img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox">
+            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox"></a>
         </div>
 
-        <div class="search_section">
-           <form action="{% url 'Search' %}" method="get">
+        <form action="{% url 'Search' %}" method="get" class="search_section">
             <input name="q" type="text" placeholder="Search...">
             <i class="fa fa-search" aria-hidden="true"></i>
-            </form>
-        </div>
+        </form>
         {% if user.is_authenticated %}
         <div class="account_section">
-            <i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i>
+            <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
             <h4 style="margin: 6px;">{{user.username}}</h4>
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </div>
@@ -82,8 +80,15 @@
                 <h2  class="sidebar_text" >Liked videos</h2>
             </div>
             <div class="sidebars_field" id="sidebar-row">
-                <i class="fa fa-sign-out icon_sidebar" aria-hidden="true"></i>
-                <a href="{% url 'account_logout' %}"><h2  class="sidebar_text">Log Out</h2></a>
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <button class="fa fa-sign-out icon_sidebar" type="submit" aria-hidden="true"></button>
+                    <h2  class="sidebar_text">Log Out</h2>
+                </form>
             </div>
             {% else %}
             <div class="sidebars_field" id="sidebar-row">

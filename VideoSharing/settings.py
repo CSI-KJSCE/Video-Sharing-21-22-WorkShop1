@@ -140,9 +140,9 @@ AUTHENTICATION_BACKENDS = (
 'allauth.account.auth_backends.AuthenticationBackend',
 )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT = 'home'
+LOGIN_REDIRECT_URL = 'homepage'
+LOGOUT_REDIRECT_URL = 'homepage'
+ACCOUNT_LOGOUT_REDIRECT = 'homepage'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SITE_ID = 1
 

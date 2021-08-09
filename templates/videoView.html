@@ -16,19 +16,29 @@
     <div class="header_section">
         <div class="left_section">
             <i class="fa fa-bars hamburger fa-6x" style="transform: scale(1.5,1);" aria-hidden="true"></i>
-            <img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox">
+            <a href="{% url 'homepage' %}"><img class="logo-styles" src="{% static 'images/logo.png' %}" alt="VideoBox"></a>
         </div>
 
-        <div class="search_section">
-            <input type="text" placeholder="Search"/>
+        <form action="{% url 'Search' %}" method="get" class="search_section">
+            <input name="q" type="text" placeholder="Search...">
             <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-
+        </form>
+        {% if user.is_authenticated %}
         <div class="account_section">
-            <i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i>
-            <h4 style="margin: 6px;">Krutika Bhatt</h4>
+            <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
+            <h4 style="margin: 6px;">{{user.username}}</h4>
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </div>
+        {% else %}
+        <div class="account_section">
+            <a href="{% url 'account_login' %}"><button class="AuthButton" >
+               Login
+           </button> </a>
+           <a href="{% url 'account_signup' %}"><button class="AuthButton">
+               SignUp
+           </button></a>
+        </div>
+        {% endif %}
     </div>
 
     <!-- Main Video Section -->
@@ -66,12 +76,12 @@
                 </div>
                 <div class="Next_ROW" style="height: 1.5px;width:1070px;"></div>
 
-                <h3> 432 Comments</h3>
+                <h3> {{count}} Comments</h3>
                 <div class="MyComment">
                 <form method="POST">
                     {% csrf_token %}
-                    <textarea rows="4" cols="110" placeholder="Enter a comment"></textarea>
-                    <button class="Comment_button">Save</button>
+                    <textarea rows="4" cols="110" placeholder="Enter a comment" name="Addcomment"></textarea>
+                    <button class="Comment_button" type="submit">Save</button>
                 </form>
                 <div class="Comments">
 
@@ -89,20 +99,6 @@
                             </div>
                         </div>
                         {% endfor %}
-
-                        <div class="SingleComment">
-                            <div class="AlignCommentItem" style="display: flex;">
-                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                                <div class="NameText">
-                                    <h4>Krutika Bhatt</h4>
-                                    <p>I am in 1st year and really needed this video. Open source is a basic need.In any project let it be academic or not- These skills are necessary. Now in covide times,this video is appreciated</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
 

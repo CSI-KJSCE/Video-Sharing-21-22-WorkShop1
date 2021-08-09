@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import User, Comment, NewVideo
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 
@@ -18,10 +19,23 @@ def homepage(request):
 def video(request,pk):
     video = NewVideo.objects.get(pk=pk)
     print(video)
-    #comments=Comment.objects.get(video = video)
-    #print(comments)
-    #if request.method=="POST":
-    return render(request,'videoView.html',{'video':video})
+    comments=Comment.objects.filter(video = video)
+    count = Comment.objects.filter(video = video).count()
+    if request.method=="POST":
+        print(request.POST)
+        if 'Addcomment' in request.POST:
+            text = request.POST['Addcomment']
+            user = User.objects.first()
+            comment = Comment.objects.create(
+                user = user,
+                text = text,
+                video = video
+            )
+        
+
+        return redirect('ViewVideo',pk=pk)
+
+    return render(request,'videoView.html',{'video':video,'comments':comments,'count':count})
         #Make the thumbs up and down icon a button
         #likes++ dislikes++
         #comment=request.POST["comment"]
@@ -32,20 +46,18 @@ def video(request,pk):
 
 
 def upload(request):
-    if request.method == "POST":
-        title = request.POST['title']
-        desc = request.POST['desc']
-
-        thumbnail =  request.FILES['thumbnail']
-        video =  request.FILES['video']
-
-
-        videoobj= NewVideo(user=request.user,title=title,description=desc, date=date.today(),thumbnail=thumbnail,video=video )
-        videoobj.save()
-
-        #print('\n\n\n' + request.user + '\n\n')
-
-    return render(request,'upload.html',{})
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/accounts/login/')
+    else:
+        if request.method == "POST":
+            title = request.POST['title']
+            desc = request.POST['desc']
+            thumbnail =  request.FILES['thumbnail']
+            video =  request.FILES['video']
+            
+            videoobj= NewVideo(user=request.user,title=title,description=desc, date=date.today(),thumbnail=thumbnail,video=video )
+            videoobj.save()
+        return render(request,'upload.html',{})
 
 class SearchResultsView(ListView):
     model = NewVideo
