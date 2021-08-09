@@ -45,7 +45,7 @@ class NewVideo(models.Model):
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
     date = models.CharField(default="",max_length=100)
-    thumbnail = models.ImageField(default = None)
+    thumbnail = models.ImageField(upload_to='thumbnail_uploaded',default = None)
     video = models.FileField(upload_to='videos_uploaded',validators=[FileExtensionValidator(allowed_extensions=['MOV','avi','mp4','webm','mkv'])], default=None)
 
     def __str__(self):
