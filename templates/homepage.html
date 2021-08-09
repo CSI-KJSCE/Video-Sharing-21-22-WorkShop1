@@ -20,8 +20,10 @@
         </div>
 
         <div class="search_section">
-            <input type="text" placeholder="Search"/>
+           <form action="{% url 'Search' %}" method="get">
+            <input name="q" type="text" placeholder="Search...">
             <i class="fa fa-search" aria-hidden="true"></i>
+            </form>
         </div>
         {% if user.is_authenticated %}
         <div class="account_section">
