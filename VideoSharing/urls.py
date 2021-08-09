@@ -16,7 +16,6 @@ urlpatterns = [
     path('',HomePageView.as_view(),name='home'),
     path('homepage/',views.homepage,name='homepage'),
     url(r'^view/(?P<pk>\d+)/$', views.video, name='ViewVideo'),
-    #path('videoView/',views.video,name="ViewVideo"),
     path('upload/',views.upload,name="UploadVideo"),
 
 ]
