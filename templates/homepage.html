@@ -104,65 +104,22 @@
         <div class="TheVideoSection">
             <h2>All Videos</h2>
             <div class="AllVideos">
+                {% for video in videos  %}
+                <a href="{% url 'ViewVideo' video.pk %}">
                 <div class="VideoCard">
-                    <img class="video_thumbnail" src="{% static 'images/images/Capture.PNG' %}" alt ="Filtercopy">
+                    <img class="video_thumbnail" src={{video.thumbnail.url}} alt ={{video.title}}>
                     <div class="videoCard_info">
                         <i class="fa fa-user-circle VideoAvatar" aria-hidden="true"></i>
                         <div class="video_text">
-                            <h4>Learn git and github in 1 hour!</h4>
-                            <p>Coding Ninja</p>
-                            <p>234k Views &nbsp; &#9679; 2 days ago</p>
+                            <h4>{{video.title}}</h4>
+                            <p>{{video.user}}</p>
+                            <p>{{video.likes}} Likes &nbsp; &#9679; Stremed on {{video.date}}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="VideoCard">
-                    <img class="video_thumbnail" src="{% static 'images/images/Capture.PNG' %}" alt ="Filtercopy">
-                    <div class="videoCard_info">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <div class="video_text">
-                            <h4>Learn git and github in 1 hour!</h4>
-                            <p>Coding Ninja</p>
-                            <p>234k Views &#9679; 2 days ago</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="VideoCard">
-                    <img class="video_thumbnail" src="{% static 'images/images/Capture.PNG' %}" alt ="Filtercopy">
-                    <div class="videoCard_info">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <div class="video_text">
-                            <h4>Learn git and github in 1 hour!</h4>
-                            <p>Coding Ninja</p>
-                            <p>234k Views &#9679; 2 days ago</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="VideoCard">
-                    <img class="video_thumbnail" src="{% static 'images/images/Capture.PNG' %}" alt ="Filtercopy">
-                    <div class="videoCard_info">
-                        <i class="fa fa-user-circle VideoAvatar" aria-hidden="true"></i>
-                        <div class="video_text">
-                            <h4>Learn git and github in 1 hour!</h4>
-                            <p>Coding Ninja</p>
-                            <p>234k Views &#9679; 2 days ago</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="VideoCard">
-                    <img class="video_thumbnail" src="{% static 'images/images/Capture.PNG' %}" alt ="Filtercopy">
-                    <div class="videoCard_info">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <div class="video_text">
-                            <h4>Learn git and github in 1 hour!</h4>
-                            <p>Coding Ninja</p>
-                            <p>234k Views &#9679; 2 days ago</p>
-                        </div>
-                    </div>
-                </div>
+                </a>
+                
+                {% endfor %}
             </div>
 
         </div>

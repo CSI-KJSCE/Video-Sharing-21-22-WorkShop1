@@ -11,8 +11,9 @@ class HomePageView(TemplateView):
 
 
 def homepage(request):
-
-    return render(request,'homepage.html',{})
+    #username=User.objects.filter(name=User.username)
+    videos=NewVideo.objects.all()
+    return render(request,'homepage.html',{'videos':videos})
 
 
 def video(request,pk):

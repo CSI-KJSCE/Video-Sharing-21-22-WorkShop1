@@ -34,7 +34,7 @@
     <!-- Main Video Section -->
     <div class="TheMainVideoSection">
         <div class="videos">
-            <video  width="1060" height="500" controls>
+            <video  height="500" controls>
                 <source src={{video.video.url}} type="video/mp4">
             </video>
 
@@ -68,7 +68,7 @@
                 <div class="ProfileSection">
                     <div class="ProfileAccount">
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                        <h4>Krutika Bhatt</h4>
+                        <h4>{{video.user}}</h4>
                     </div>
                     <p>{{ video.description }}</p>
                 </div>
@@ -85,16 +85,18 @@
 
                 </div>
                     <div class="OthersComment">
+                        {% for comment in comments %}
                         <div class="SingleComment">
                             <div class="AlignCommentItem" style="display: flex;">
                                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                 <div class="NameText">
-                                    <h4>Diana Fernandis</h4>
-                                    <p>It is very well Explained.. Keep it up :-)</p>
+                                    <h4>{{comment.user}}</h4>
+                                    <p>{{comment.text}}</p>
                                 </div>
 
                             </div>
                         </div>
+                        {% endfor %}
 
                         <div class="SingleComment">
                             <div class="AlignCommentItem" style="display: flex;">
