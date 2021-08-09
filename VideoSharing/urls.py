@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^view/(?P<pk>\d+)/$', views.video, name='ViewVideo'),
     path('upload/',views.upload,name="UploadVideo"),
     path('search_result/',views.SearchResultsView.as_view(),name="Search"),
+    path('trending_results/',views.Trending_View.as_view(),name="trend"),
 
 
 ]
