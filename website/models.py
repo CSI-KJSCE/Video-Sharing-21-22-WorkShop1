@@ -53,8 +53,9 @@ class NewVideo(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,default="")
-    text = models.TextField(max_length=1000,default="")
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    text = models.TextField(max_length=1000)
+    video = models.ForeignKey(NewVideo,on_delete=models.CASCADE,default=2)
 
     def __str__(self):
-        return text
+        return self.text
