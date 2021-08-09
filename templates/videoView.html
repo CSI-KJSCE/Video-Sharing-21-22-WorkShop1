@@ -42,10 +42,18 @@
                 <div class="First_line">
                     <h4>{{ video.title }}</h4>
                     <div class="LikeUnlike">
+                      <button name="Like" value="Click">
+                        <span>
                         <i class="fa fa-thumbs-up" aria-hidden="true" id="IconResize"></i>
+                      </span>
+                      </button>
                         <h4 class="LikeCount">{{ video.likes }}</h4>
+                        <button name="Like" value="Click">
+                          <span>
                         <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
                         <h4  class="LikeCount">{{ video.dislikes }}</h4>
+                      </span>
+                      </button>
                     </div>
 
                     <div class="Share_feature">
