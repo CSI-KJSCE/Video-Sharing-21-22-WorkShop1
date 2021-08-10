@@ -1,1 +1,1 @@
-web: gunicorn VideoSharing.wsgi
+web: gunicorn VideoSharing.wsgi:apllication --log-file -
