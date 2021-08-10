@@ -57,6 +57,7 @@ def upload(request):
             
             videoobj= NewVideo(user=request.user,title=title,description=desc, date=date.today(),thumbnail=thumbnail,video=video )
             videoobj.save()
+            return redirect('homepage')
         return render(request,'upload.html',{})
 
 

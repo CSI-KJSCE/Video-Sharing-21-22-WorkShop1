@@ -86,8 +86,10 @@
                     
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                     {% endif %}
-                    <button class="fa fa-sign-out icon_sidebar" type="submit" aria-hidden="true"></button>
+                    <button class="LogoutButton">
+                    <i class="fa fa-sign-out icon_sidebar" type="submit" aria-hidden="true"></i>
                     <h2  class="sidebar_text">Log Out</h2>
+                    </button>
                 </form>
             </div>
             {% else %}

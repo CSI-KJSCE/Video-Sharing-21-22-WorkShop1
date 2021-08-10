@@ -44,30 +44,20 @@
     <!-- Main Video Section -->
     <div class="TheMainVideoSection">
         <div class="videos">
-            <video  height="500" controls>
+            <video  width="1000" height="500" controls>
                 <source src={{video.video.url}} type="video/mp4">
             </video>
 
             <div class="Video_section">
                 <div class="First_line">
                     <h4>{{ video.title }}</h4>
-                    <form method="POST" action="">
                     <div class="LikeUnlike">
-                      <button name="Like" value="Click">
-                        <span>
                         <i class="fa fa-thumbs-up" aria-hidden="true" id="IconResize"></i>
-                      </span>
-                      </button>
                         <h4 class="LikeCount">{{ video.likes }}</h4>
-                        <button name="Dislike" value="Click">
-                          <span>
                         <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
-                      </span>
-                      </button>
                         <h4  class="LikeCount">{{ video.dislikes }}</h4>
-
                     </div>
-                    </form>
+
                     <div class="Share_feature">
                         <h4>Share</h4>
                         <i class="fa fa-share-alt" aria-hidden="true" id="IconResize"></i>

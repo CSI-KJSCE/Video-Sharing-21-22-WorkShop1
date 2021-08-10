@@ -209,3 +209,14 @@ a {
     background: #285fd4;
     border: 2px solid #fff;
 }
+.LogoutButton{
+    display: flex;
+    width : auto;
+    padding-right: 10px;
+    padding-left: 0;
+    background-color:inherit;
+    border:none;
+}
+.LogoutButton:hover{
+    background-color:lightgray;
+}
