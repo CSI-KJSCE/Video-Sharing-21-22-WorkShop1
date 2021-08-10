@@ -83,7 +83,7 @@
                 <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
                     {% if redirect_field_value %}
-                    
+
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                     {% endif %}
                     <button class="LogoutButton">
@@ -120,12 +120,12 @@
                         <div class="video_text">
                             <h4>{{video.title}}</h4>
                             <p>{{video.user}}</p>
-                            <p>{{video.likes}} Likes &nbsp; &#9679; Stremed on {{video.date}}</p>
+                            <p>{{video.likes}} Likes &nbsp; &#9679; Streamed on {{video.date}}</p>
                         </div>
                     </div>
                 </div>
                 </a>
-                
+
                 {% endfor %}
             </div>
 

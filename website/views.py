@@ -35,7 +35,16 @@ def video(request,pk):
                 text = text,
                 video = video
             )
-        
+        elif 'Like' in request.POST:
+            video.likes= video.likes+1
+            video.save()
+        elif 'Dislike' in request.POST:
+            video.dislikes= video.dislikes+1
+            video.save()
+
+
+
+
 
         return redirect('ViewVideo',pk=pk)
 
@@ -57,7 +66,7 @@ def upload(request):
             desc = request.POST['desc']
             thumbnail =  request.FILES['thumbnail']
             video =  request.FILES['video']
-            
+
             videoobj= NewVideo(user=request.user,title=title,description=desc, date=date.today(),thumbnail=thumbnail,video=video )
             videoobj.save()
             return redirect('homepage')
@@ -105,7 +114,7 @@ class Trending_View(ListView):
             for j in i:
                 print(j)
                 if j in max_list:
-                    
+
                     trend_list.append(j)
         print(trend_list)
         return NewVideo.objects.filter(
