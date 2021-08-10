@@ -14,7 +14,7 @@
     margin-top :20px;
     font-size :18px;
     margin-left: 8%;
-    
+
 }
 
 .Video_section > p{
@@ -40,11 +40,13 @@
 
 .LikeUnlike{
     display : flex;
-    margin-left:48%;
+    margin-left:53%;
     margin-right:2%;
     color :#606060;
 
+
 }
+
 .Share_feature{
     display:flex;
     color :#606060;
@@ -91,7 +93,7 @@
     width :800px;
     margin-left: 3.5%;
     align-items: center;
-    text-align:left;   
+    text-align:left;
 }
 
 .MyComment{
@@ -142,4 +144,11 @@
     font-size:2em;
     color :rgb(49, 48, 49);
     margin-right: 8px;
+}
+
+.ldbutton {
+    color :inherit;
+    background-color:inherit;
+    border: none;
+    cursor: pointer;
 }

@@ -26,7 +26,7 @@
         {% if user.is_authenticated %}
         <div class="account_section">
             <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
-            <h4 style="margin: 6px;">{{user.username}}</h4>
+            <h4 style="margin: 6px;font-size: 18px;font-family: sans-serif;letter-spacing: 0.5px;">{{user.username}}</h4>
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </div>
         {% else %}
@@ -51,20 +51,24 @@
             <div class="Video_section">
                 <div class="First_line">
                     <h4>{{ video.title }}</h4>
-                    <form method="POST">
                     <div class="LikeUnlike">
-                        <input type="hidden" name="like"/>
-                        <button type="submit">
+                        <form method="POST">
+                          {% csrf_token %}
+                        <button class="ldbutton" name="Like">
                         <i class="fa fa-thumbs-up" aria-hidden="true" id="IconResize"></i>
-                        </button>
-                        <h4 class="LikeCount">{{ video.likes }}</h4>
-                        <input type="hidden" name="dislike"/>
-                        <button type="submit">
-                        <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
-                        </button>
-                        <h4  class="LikeCount">{{ video.dislikes }}</h4>
-                    </div>
+                      </button>
                     </form>
+                    <h4 class="LikeCount"> {{ video.likes }} </h4>
+                    
+                    <form method="POST">
+                      {% csrf_token %}
+                    <button class="ldbutton" name="Dislike">
+                        <i class="fa fa-thumbs-down" aria-hidden="true" id="IconResize"></i>
+                    </button>
+                    </form>
+                    <h4 class="LikeCount">{{ video.dislikes }}</h4>
+                    </div>
+                
                     <div class="Share_feature">
                         <h4>Share</h4>
                         <i class="fa fa-share-alt" aria-hidden="true" id="IconResize"></i>

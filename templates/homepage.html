@@ -26,7 +26,7 @@
         {% if user.is_authenticated %}
         <div class="account_section">
             <a href = '/upload'><i class="fa fa-video-camera" aria-hidden="true" style="margin: 10px;"></i></a>
-            <h4 style="margin: 6px;">{{user.username}}</h4>
+            <h4 style="margin: 6px;font-size: 18px;font-family: sans-serif;letter-spacing: 0.5px;">{{user.username}}</h4>
             <i class="fa fa-caret-down" aria-hidden="true"></i>
         </div>
         {% else %}
@@ -45,10 +45,12 @@
 
     <div class="main_code_body">
         <div class="SideBars">
+            <a href="{% url 'homepage' %}">
             <div class="sidebars_field" id="sidebar-row">
                 <i class="fa fa-home icon_sidebar" aria-hidden="true" ></i>
                 <h2 class="sidebar_text"> Home </h2>
             </div>
+            </a>
             <div class="sidebars_field" id="sidebar-row">
                 <i class="fa fa-heart icon_sidebar" aria-hidden="true" ></i>
                 <h2  class="sidebar_text" >Trending</h2>
@@ -83,7 +85,7 @@
                 <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
                     {% if redirect_field_value %}
-                    
+
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                     {% endif %}
                     <button class="LogoutButton">
@@ -120,12 +122,12 @@
                         <div class="video_text">
                             <h4>{{video.title}}</h4>
                             <p>{{video.user}}</p>
-                            <p>{{video.likes}} Likes &nbsp; &#9679; Stremed on {{video.date}}</p>
+                            <p>{{video.likes}} Likes &nbsp; &#9679; Streamed on {{video.date}}</p>
                         </div>
                     </div>
                 </div>
                 </a>
-                
+
                 {% endfor %}
             </div>
 

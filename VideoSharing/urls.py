@@ -13,8 +13,8 @@ class HomePageView(TemplateView):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('',HomePageView.as_view(),name='home'),
-    path('homepage/',views.homepage,name='homepage'),
+    #path('',HomePageView.as_view(),name='home'),
+    path('',views.homepage,name='homepage'),
     url(r'^view/(?P<pk>\d+)/$', views.video, name='ViewVideo'),
     path('upload/',views.upload,name="UploadVideo"),
     path('search_result/',views.SearchResultsView.as_view(),name="Search"),
