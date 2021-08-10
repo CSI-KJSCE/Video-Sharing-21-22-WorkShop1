@@ -16,7 +16,15 @@ class HomePageView(TemplateView):
 
 def homepage(request):
     #username=User.objects.filter(name=User.username)
-    videos=NewVideo.objects.all()
+
+    if request.method =='GET' and 'q' in request.GET:
+        print("Search")
+        query = request.GET.get('q')
+        videos = NewVideo.objects.filter(Q(title__icontains=query))
+
+    else:
+        videos=NewVideo.objects.all()
+    
     return render(request,'homepage.html',{'videos':videos})
 
 
